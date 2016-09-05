@@ -1,6 +1,6 @@
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
-/*jslint node: true, nomen: true */
-/*global describe, it */
+/* eslint-env es6, mocha, node */
+/* eslint-extends: eslint:recommended */
 'use strict';
 
 
@@ -8,7 +8,7 @@
 var util = require('util'),
     expect = require('expect.js'),
     karmia_utility_string = require('../lib'),
-    kstring = new karmia_utility_string();
+    kstring = karmia_utility_string();
 
 
 // Test
