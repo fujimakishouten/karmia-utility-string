@@ -66,6 +66,41 @@ const string = '"Hello, world."';
 kstring.unquote(string);
 ```
 
+### zfill
+- string ```<string>```
+- width ```<number>```
+- encoding ```<string>```
+
+```JavaScript
+const string = '1';
+kstring.zfill(string, 3);
+```
+
+### camel_case
+- string ```<string>```
+- capitalize ```<boolean>``` Default: false
+
+```JavaScript
+const string = 'snake_case_string';
+kstring.camel_case(string);
+```
+
+### snake_case
+- string ```<string>```
+
+```JavaScript
+const string = 'camelCaseString';
+kstring.snake_case(string);
+```
+
+### kebab_case
+- string ```<string>```
+
+```JavaScript
+const string = 'camelCaseString';
+kstring.kebab_case(string);
+```
+
 ### parse
 - string ```<string>```
 - delimiter ```<string/regexp>``` Default: /,? /
@@ -76,24 +111,24 @@ const string = 'key1=value1, key2=value2';
 kstring.parse(string, /,? /, '=');
 ```
 
-### toBoolean
+### to_boolean
 - string ```<string>```
 
 ```JavaScript
 // Should be true
-kstring.toBoolean('true');
-kstring.toBoolean('True');
-kstring.toBoolean('TRUE');
-kstring.toBoolean('0');
-kstring.toBoolean(1);
-kstring.toBoolean(true);
-kstring.toBoolean('false_1');
+kstring.to_boolean('true');
+kstring.to_boolean('True');
+kstring.to_boolean('TRUE');
+kstring.to_boolean('0');
+kstring.to_boolean(1);
+kstring.to_boolean(true);
+kstring.to_boolean('false_1');
 
 // Should be false
-kstring.toBoolean('false');
-kstring.toBoolean('False');
-kstring.toBoolean('FALSE');
-kstring.toBoolean('');
-kstring.toBoolean(0);
-kstring.toBoolean(false);
+kstring.to_boolean('false');
+kstring.to_boolean('False');
+kstring.to_boolean('FALSE');
+kstring.to_boolean('');
+kstring.to_boolean(0);
+kstring.to_boolean(false);
 ```
