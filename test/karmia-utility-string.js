@@ -103,13 +103,13 @@ describe('karmia-utility-string', function () {
         });
     });
 
-    describe('camel_case', function () {
+    describe('camelCase', function () {
         it('Should convert from snake_case', function (done) {
             const from = 'snake_case_to_camel_case',
                 to = 'snakeCaseToCamelCase';
 
-            expect(kstring.camel_case(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
-            expect(kstring.camel_case(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
+            expect(kstring.camelCase(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
+            expect(kstring.camelCase(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
 
             done();
         });
@@ -118,19 +118,19 @@ describe('karmia-utility-string', function () {
             const from = 'kebab-case-to-camel-case',
                 to = 'kebabCaseToCamelCase';
 
-            expect(kstring.camel_case(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
-            expect(kstring.camel_case(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
+            expect(kstring.camelCase(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
+            expect(kstring.camelCase(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
 
             done();
         });
     });
 
-    describe('snake_case', function () {
+    describe('snakeCase', function () {
         it('Should convert from camelCase', function (done) {
             const from = 'camelCaseToSnakeCase',
                 to = 'camel_case_to_snake_case';
 
-            expect(kstring.snake_case(from)).to.be(to);
+            expect(kstring.snakeCase(from)).to.be(to);
 
             done();
         });
@@ -139,18 +139,18 @@ describe('karmia-utility-string', function () {
             const from = 'kebab-case-to-snake-case',
                 to = 'kebab_case_to_snake_case';
 
-            expect(kstring.snake_case(from)).to.be(to);
+            expect(kstring.snakeCase(from)).to.be(to);
 
             done();
         });
     });
 
-    describe('kebab_case', function () {
+    describe('kebabCase', function () {
         it('Should convert from camelCase', function (done) {
             const from = 'camelCaseToKebabCase',
                 to = 'camel-case-to-kebab-case';
 
-            expect(kstring.kebab_case(from)).to.be(to);
+            expect(kstring.kebabCase(from)).to.be(to);
 
             done();
         });
@@ -159,7 +159,7 @@ describe('karmia-utility-string', function () {
             const from = 'snake_case_to_kebab_case',
                 to = 'snake-case-to-kebab-case';
 
-            expect(kstring.kebab_case(from)).to.be(to);
+            expect(kstring.kebabCase(from)).to.be(to);
 
             done();
         });
@@ -246,31 +246,31 @@ describe('karmia-utility-string', function () {
         });
     });
 
-    describe('to_boolean', function () {
+    describe('toBoolean', function () {
         it('Should be true', function () {
-            expect(kstring.to_boolean('true')).to.be(true);
-            expect(kstring.to_boolean('True')).to.be(true);
-            expect(kstring.to_boolean('TRUE')).to.be(true);
-            expect(kstring.to_boolean('true1')).to.be(true);
-            expect(kstring.to_boolean('false1')).to.be(true);
+            expect(kstring.toBoolean('true')).to.be(true);
+            expect(kstring.toBoolean('True')).to.be(true);
+            expect(kstring.toBoolean('TRUE')).to.be(true);
+            expect(kstring.toBoolean('true1')).to.be(true);
+            expect(kstring.toBoolean('false1')).to.be(true);
         });
 
         it('Should be false', function () {
-            expect(kstring.to_boolean('false')).to.be(false);
-            expect(kstring.to_boolean('False')).to.be(false);
-            expect(kstring.to_boolean('FALSE')).to.be(false);
+            expect(kstring.toBoolean('false')).to.be(false);
+            expect(kstring.toBoolean('False')).to.be(false);
+            expect(kstring.toBoolean('FALSE')).to.be(false);
         });
 
         it('Should not be true', function () {
-            expect(kstring.to_boolean(0)).to.be(false);
-            expect(kstring.to_boolean('')).to.be(false);
-            expect(kstring.to_boolean(false)).to.be(false);
+            expect(kstring.toBoolean(0)).to.be(false);
+            expect(kstring.toBoolean('')).to.be(false);
+            expect(kstring.toBoolean(false)).to.be(false);
         });
 
         it('Should not be false', function () {
-            expect(kstring.to_boolean(1)).to.be(true);
-            expect(kstring.to_boolean('0')).to.be(true);
-            expect(kstring.to_boolean(true)).to.be(true);
+            expect(kstring.toBoolean(1)).to.be(true);
+            expect(kstring.toBoolean('0')).to.be(true);
+            expect(kstring.toBoolean(true)).to.be(true);
         });
     });
 });

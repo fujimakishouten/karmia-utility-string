@@ -76,29 +76,29 @@ const string = '1';
 kstring.zfill(string, 3);
 ```
 
-### camel_case
+### camelCase
 - string ```<string>```
 - capitalize ```<boolean>``` Default: false
 
 ```JavaScript
 const string = 'snake_case_string';
-kstring.camel_case(string);
+kstring.camelCase(string);
 ```
 
-### snake_case
+### snakeCase
 - string ```<string>```
 
 ```JavaScript
 const string = 'camelCaseString';
-kstring.snake_case(string);
+kstring.snakeCase(string);
 ```
 
-### kebab_case
+### kebabCase
 - string ```<string>```
 
 ```JavaScript
 const string = 'camelCaseString';
-kstring.kebab_case(string);
+kstring.kebabCase(string);
 ```
 
 ### parse
@@ -111,24 +111,24 @@ const string = 'key1=value1, key2=value2';
 kstring.parse(string, /,? /, '=');
 ```
 
-### to_boolean
+### toBoolean
 - string ```<string>```
 
 ```JavaScript
 // Should be true
-kstring.to_boolean('true');
-kstring.to_boolean('True');
-kstring.to_boolean('TRUE');
-kstring.to_boolean('0');
-kstring.to_boolean(1);
-kstring.to_boolean(true);
-kstring.to_boolean('false_1');
+kstring.toBoolean('true');
+kstring.toBoolean('True');
+kstring.toBoolean('TRUE');
+kstring.toBoolean('0');
+kstring.toBoolean(1);
+kstring.toBoolean(true);
+kstring.toBoolean('false_1');
 
 // Should be false
-kstring.to_boolean('false');
-kstring.to_boolean('False');
-kstring.to_boolean('FALSE');
-kstring.to_boolean('');
-kstring.to_boolean(0);
-kstring.to_boolean(false);
+kstring.toBoolean('false');
+kstring.toBoolean('False');
+kstring.toBoolean('FALSE');
+kstring.toBoolean('');
+kstring.toBoolean(0);
+kstring.toBoolean(false);
 ```
