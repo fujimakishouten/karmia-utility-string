@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-string",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "Karmia utility string module",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-string",
     "license": "MIT",
@@ -14,7 +14,6 @@
         "test": "./node_modules/.bin/mocha ./test"
     },
     "dependencies": {
-        "lodash": ">=4.11.1",
         "regexpu-core": ">=3.2.0"
     },
     "devDependencies": {
