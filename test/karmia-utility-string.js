@@ -14,6 +14,37 @@ var util = require('util'),
 
 // Test
 describe('karmia-utility-string', function () {
+    describe('isString', function () {
+        describe('Should return true', function () {
+            it('String literal', function () {
+                const string = 'Hello, world.';
+                expect(kstring.isString(string)).to.be(true);
+            });
+
+            it('String object', function () {
+                const string = new String('Hello, world.');
+                expect(kstring.isString(string)).to.be(true);
+            });
+        });
+
+        describe('Should return false', function () {
+            it('Number literal', function () {
+                const number = 1;
+                expect(kstring.isString(number)).to.be(false);
+            });
+
+            it('Number object', function () {
+                const number = new Number(1);
+                expect(kstring.isString(number)).to.be(false);
+            });
+
+            it('Object', function () {
+                const object = {};
+                expect(kstring.isString(object)).to.be(false);
+            });
+        });
+    });
+
     describe('trim', function () {
         it('Should trim whitespace', function () {
             const string = 'Hello, world.';

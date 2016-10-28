@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-string",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Karmia utility string module",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-string",
     "license": "MIT",
@@ -20,5 +20,8 @@
     "devDependencies": {
         "mocha": ">=2.4.5",
         "expect.js": ">=0.3.1"
+    },
+    "engines": {
+        "node": ">=4.0.0"
     }
 }
