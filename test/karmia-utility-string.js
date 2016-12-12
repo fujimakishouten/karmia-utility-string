@@ -282,8 +282,8 @@ describe('karmia-utility-string', function () {
             expect(kstring.toBoolean('true')).to.be(true);
             expect(kstring.toBoolean('True')).to.be(true);
             expect(kstring.toBoolean('TRUE')).to.be(true);
-            expect(kstring.toBoolean('true1')).to.be(true);
-            expect(kstring.toBoolean('false1')).to.be(true);
+            expect(kstring.toBoolean('true1')).to.be(false);
+            expect(kstring.toBoolean('false1')).to.be(false);
         });
 
         it('Should be false', function () {
@@ -300,7 +300,7 @@ describe('karmia-utility-string', function () {
 
         it('Should not be false', function () {
             expect(kstring.toBoolean(1)).to.be(true);
-            expect(kstring.toBoolean('0')).to.be(true);
+            expect(kstring.toBoolean('0')).to.be(false);
             expect(kstring.toBoolean(true)).to.be(true);
         });
     });
