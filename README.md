@@ -7,46 +7,46 @@ const karmia_utility_string = require('karmia-utility-string'),
     kstring = new karmia_utility_string();
 ```
 
-### trim
+### strip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = '    Hello, world.    ';
-kstring.trim(string);
+kstring.strip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = '"Hello, world."';
-kstring.trim(string, '"');
+kstring.strip(string, '"');
 ```
 
-### ltrim
+### lstrip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = '    Hello, world.';
-kstring.trim(string);
+kstring.lstrip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = '"Hello, world.';
-kstring.trim(string, '"');
+kstring.lstrip(string, '"');
 ```
 
-### rtrim
+### rstrip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = 'Hello, world.    ';
-kstring.trim(string);
+kstring.rstrip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = 'Hello, world."';
-kstring.trim(string, '"');
+kstring.rstrip(string, '"');
 ```
 
 ### normalize
