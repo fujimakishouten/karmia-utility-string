@@ -17,5 +17,4 @@ declare class KarmiaUtilityString {
     toBoolean(string: string): boolean;
 }
 
-declare function karmia_utility_string(options: object): KarmiaUtilityString;
-export = karmia_utility_string;
+export = KarmiaUtilityString;
