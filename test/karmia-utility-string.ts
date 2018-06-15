@@ -90,183 +90,138 @@ describe('karmia-utility-string', function () {
         it('Should normalize string', function () {
             const string = '\u202b１２３\r\nＡＢＣ\rｄｅｆ\nｱｲｳｴｵｶﾞ',
                 result = '123\nABC\ndef\nアイウエオガ';
-
             expect(KarmiaUtilityString.normalize(string, 'NFKC')).to.be(result);
         });
     });
 
     describe('unquote', function () {
         describe('Should unquote string', function () {
-            it('Not quoted', function (done) {
+            it('Not quoted', function () {
                 const string = 'Hello, world.';
-
                 expect(KarmiaUtilityString.unquote(util.format('%s', string))).to.be(string);
-
-                done();
             });
 
-            it('Single quote', function (done) {
+            it('Single quote', function () {
                 const string = 'Hello, world.';
                 expect(KarmiaUtilityString.unquote(util.format("'%s'", string))).to.be(string);
-
-                done();
             });
 
-            it('Double quote', function (done) {
+            it('Double quote', function () {
                 const string = 'Hello, world.';
                 expect(KarmiaUtilityString.unquote(util.format('"%s"', string))).to.be(string);
-
-                done();
             });
         });
 
         describe('Should not unquote string', function () {
-            it('Not quoted', function (done) {
+            it('Not quoted', function () {
                 const string = '"Hello," world.';
-
                 expect(KarmiaUtilityString.unquote(util.format('%s', string))).to.be(string);
-
-                done();
             });
 
-            it('Mismatch', function (done) {
+            it('Mismatch', function () {
                 const string = '"Hello, world.' + "'";
-
                 expect(KarmiaUtilityString.unquote(util.format('%s', string))).to.be(string);
-
-                done();
             });
         });
     });
 
     describe('zfill', function () {
-        it('Should padding left with zero', function (done) {
+        it('Should padding left with zero', function () {
             const number = 1;
-
             expect(KarmiaUtilityString.zfill(number, 0)).to.be('1');
             expect(KarmiaUtilityString.zfill(number, 1)).to.be('1');
             expect(KarmiaUtilityString.zfill(number, 2)).to.be('01');
             expect(KarmiaUtilityString.zfill(number, 3)).to.be('001');
             expect(KarmiaUtilityString.zfill(number, 4)).to.be('0001');
             expect(KarmiaUtilityString.zfill(number, 5)).to.be('00001');
-
-            done();
         });
     });
 
     describe('camelCase', function () {
-        it('Should convert from snake_case', function (done) {
+        it('Should convert from snake_case', function () {
             const from = 'snake_case_to_camel_case',
                 to = 'snakeCaseToCamelCase';
 
             expect(KarmiaUtilityString.camelCase(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
             expect(KarmiaUtilityString.camelCase(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
-
-            done();
         });
 
-        it('Should convert from kebab-case', function (done) {
+        it('Should convert from kebab-case', function () {
             const from = 'kebab-case-to-camel-case',
                 to = 'kebabCaseToCamelCase';
-
             expect(KarmiaUtilityString.camelCase(from)).to.be(to.charAt(0).toLowerCase() + to.substring(1));
             expect(KarmiaUtilityString.camelCase(from, true)).to.be(to.charAt(0).toUpperCase() + to.substring(1));
-
-            done();
         });
     });
 
     describe('snakeCase', function () {
-        it('Should convert from camelCase', function (done) {
+        it('Should convert from camelCase', function () {
             const from = 'camelCaseToSnakeCase',
                 to = 'camel_case_to_snake_case';
-
             expect(KarmiaUtilityString.snakeCase(from)).to.be(to);
-
-            done();
         });
 
-        it('Should convert from kebab-case', function (done) {
+        it('Should convert from kebab-case', function () {
             const from = 'kebab-case-to-snake-case',
                 to = 'kebab_case_to_snake_case';
-
             expect(KarmiaUtilityString.snakeCase(from)).to.be(to);
-
-            done();
         });
     });
 
     describe('kebabCase', function () {
-        it('Should convert from camelCase', function (done) {
+        it('Should convert from camelCase', function () {
             const from = 'camelCaseToKebabCase',
                 to = 'camel-case-to-kebab-case';
-
             expect(KarmiaUtilityString.kebabCase(from)).to.be(to);
-
-            done();
         });
 
-        it('Should convert from snake_case', function (done) {
+        it('Should convert from snake_case', function () {
             const from = 'snake_case_to_kebab_case',
                 to = 'snake-case-to-kebab-case';
-
             expect(KarmiaUtilityString.kebabCase(from)).to.be(to);
-
-            done();
         });
     });
 
     describe('parse', function () {
         describe('Should parse string', function () {
-            it('Set delimiter', function (done) {
+            it('Set delimiter', function () {
                 const string = 'key1=value1:key2=value2',
                     result = KarmiaUtilityString.parse(string, ':');
-
                 expect(result.key1).to.be('value1');
                 expect(result.key2).to.be('value2');
-
-                done();
             });
 
-            it('Set separator', function (done) {
+            it('Set separator', function () {
                 const string = 'key1:value1 key2:value2',
                     result = KarmiaUtilityString.parse(string, ' ', ':');
 
                 expect(result.key1).to.be('value1');
                 expect(result.key2).to.be('value2');
-
-                done();
             });
 
-            it('Parameter includes single quote', function (done) {
+            it('Parameter includes single quote', function () {
                 const string = 'key1=value1, key2=value2, key3=value' + "'" + '3',
                     result = KarmiaUtilityString.parse(string);
 
                 expect(result.key1).to.be('value1');
                 expect(result.key2).to.be('value2');
                 expect(result.key3).to.be('value' + "'" + '3');
-
-                done();
             });
 
-            it('Parameter includes double quote', function (done) {
+            it('Parameter includes double quote', function () {
                 const string = 'key1=value1, key2=value2, key3=value"3',
                     result = KarmiaUtilityString.parse(string);
 
                 expect(result.key1).to.be('value1');
                 expect(result.key2).to.be('value2');
                 expect(result.key3).to.be('value"3');
-
-                done();
             });
 
-            it('Empty string', function (done) {
+            it('Empty string', function () {
                 expect(KarmiaUtilityString.parse('')).to.eql({});
-
-                done();
             });
 
-            it('Authorize header', function (done) {
+            it('Authorize header', function () {
                 const format = 'Digest username="%s", realm="%s", nonce="%s", uri="%s", ' +
                     'algorithm=%s, response="%s", qop=%s, nc=%s, cnonce="%s"',
                     username = 'USER_NAME',
@@ -280,7 +235,6 @@ describe('karmia-utility-string', function () {
                     cnonce = 'CNONCE',
                     string = util.format(format, username, realm, nonce, uri, algorithm, response, qop, nc, cnonce),
                     result = KarmiaUtilityString.parse(string);
-
                 expect(result.Digest).to.be('Digest');
                 expect(result.username).to.be(username);
                 expect(result.realm).to.be(realm);
@@ -291,8 +245,6 @@ describe('karmia-utility-string', function () {
                 expect(result.qop).to.be(qop);
                 expect(result.nc).to.be(nc);
                 expect(result.cnonce).to.be(cnonce);
-
-                done();
             });
         });
     });
