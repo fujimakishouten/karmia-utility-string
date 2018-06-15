@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility-string",
-    "version": "0.9.6",
+    "version": "0.9.7",
     "description": "Karmia string utility module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility-string",
     "license": "MIT",
@@ -11,7 +11,7 @@
         "url": "https://github.com/fujimakishouten/karmia-utility-string.git"
     },
     "scripts": {
-        "build": "tsc",
+        "build": "tsc --lib es6",
         "cobertura": "istanbul cover --report cobertura ./node_modules/mocha/bin/_mocha ./test",
         "coverage": "istanbul cover --report html ./node_modules/mocha/bin/_mocha ./test",
         "postinstall": "npm run build",
