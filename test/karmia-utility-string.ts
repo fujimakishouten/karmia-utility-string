@@ -5,14 +5,10 @@
 
 
 
-// Declaration
-declare function require(id: string): any;
-
-
 // Import modules;
 import KarmiaUtilityString from "../";
-const util = require("util");
-const expect = require("expect.js");
+import util = require("util");
+import expect = require("expect.js");
 
 
 // Test
