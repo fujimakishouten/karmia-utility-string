@@ -246,7 +246,7 @@ class KarmiaUtilityString {
 
 
 // Export module
-export = KarmiaUtilityString;
+export default KarmiaUtilityString;
 
 
 

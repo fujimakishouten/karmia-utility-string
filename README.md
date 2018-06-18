@@ -3,7 +3,7 @@ Karmia utility string module
 
 ## Usage
 ```JavaScript
-const karmia_utility_string = require('karmia-utility-string'),
+const karmia_utility_string = require('karmia-utility-string').default,
     kstring = new karmia_utility_string();
 ```
 
