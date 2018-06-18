@@ -5,6 +5,10 @@
 
 
 
+// Declaration
+declare function require(id: string): any;
+
+
 // Import modules;
 import KarmiaUtilityString from "../";
 const util = require("util");

@@ -5,6 +5,10 @@
 
 
 
+// Declaration
+declare function require(id: string): any;
+
+
 // Import modules
 const rewritePattern = require("regexpu-core");
 
